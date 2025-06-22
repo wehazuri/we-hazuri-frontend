@@ -1,0 +1,72 @@
+{
+    "guruGranthSahib": {
+        "metadata": {
+            "name": "Sri Guru Granth Sahib Ji",
+            "totalAngs": 1430,
+            "totalRaags": 31
+        },
+        "content": {
+            "1": {
+                "gurmukhi": "ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ ॥",
+                "translation": "One Universal Creator God. The Name Is Truth. Creative Being Personified. No Fear. No Hatred. Image Of The Undying, Beyond Birth, Self-Existent. By Guru's Grace ~",
+                "raag": "Japji Sahib",
+                "author": "Guru Nanak Dev Ji"
+            },
+            "2": {
+                "gurmukhi": "ਜਪੁ ॥ ਆਦਿ ਸਚੁ ਜੁਗਾਦਿ ਸਚੁ ॥ ਹੈ ਭੀ ਸਚੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚੁ ॥੧॥",
+                "translation": "Chant And Meditate: True In The Primal Beginning. True Throughout The Ages. True Here And Now. O Nanak, Forever And Ever True. ||1||",
+                "raag": "Japji Sahib",
+                "author": "Guru Nanak Dev Ji"
+            }
+        }
+    },
+    "dasamGranth": {
+        "metadata": {
+            "name": "Dasam Granth",
+            "totalPages": 1428,
+            "sections": [
+                "Jaap Sahib",
+                "Bachitar Natak",
+                "Chandi Charitar",
+                "Chandi Di Vaar",
+                "Gian Prabodh",
+                "Chaubis Avtar",
+                "Brahm Avtar",
+                "Rudra Avtar",
+                "Shabad Hazare",
+                "Swayyae",
+                "Khalsa Mehma",
+                "Shastar Naam Mala",
+                "Charitropakhyan",
+                "Zafarnama",
+                "Hikayats"
+            ]
+        },
+        "content": {
+            "jaap_sahib_1": {
+                "gurmukhi": "ਸ੍ਰੀ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਹ ॥ ਸ੍ਰੀ ਮੁਖਵਾਕ ਪਾਤਿਸਾਹੀ ੧੦ ॥",
+                "translation": "Victory to the Wonderful Lord! The Utterance of the Tenth King.",
+                "section": "Jaap Sahib",
+                "author": "Guru Gobind Singh Ji"
+            }
+        }
+    },
+    "sarblohGranth": {
+        "metadata": {
+            "name": "Sarbloh Granth",
+            "totalPages": 1000,
+            "sections": [
+                "Sri Sarbloh Granth",
+                "Sri Sarbloh Prakash"
+            ]
+        },
+        "content": {
+            "sarbloh_1": {
+                "gurmukhi": "ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥",
+                "translation": "One Universal Creator God. By The Grace Of The True Guru.",
+                "section": "Sri Sarbloh Granth",
+                "author": "Guru Gobind Singh Ji"
+            }
+        }
+    }
+} 

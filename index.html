@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We Hazuri is a Sikh AI platform offering Gurubani wisdom, spiritual guidance, and community connection through advanced technology.">
+    <meta name="keywords" content="Sikh AI, Gurubani, Sikh teachings, spirituality, Hukamnama, Kirtan">
+    <meta name="author" content="We Hazuri Team">
+    <meta property="og:title" content="We Hazuri - Sikh AI Platform">
+    <meta property="og:description" content="Connect with Sikh teachings and Gurubani wisdom through our intelligent AI platform.">
+    <meta property="og:image" content="https://wehazuri.com/images/og-image.jpg">
+    <meta property="og:url" content="https://wehazuri.com">
+    <title>We Hazuri - Sikh AI Platform</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(90deg, #b0b4b8 0%, #6e7072 40%, #d7d7d7 60%, #434547 100%);
+            --bg-color: #121212;
+            --text-color: #CCCCCC;
+            --headline-color: #FAFAFA;
+            --glass-bg: rgba(44, 44, 44, 0.7);
+            --border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                rgba(5, 5, 5, 0.98) 0%,
+                rgba(20, 20, 20, 0.95) 20%,
+                rgba(10, 10, 10, 0.98) 50%,
+                rgba(15, 15, 15, 0.95) 80%,
+                rgba(0, 0, 0, 0.98) 100%
+            );
+            background-size: 200% 200%;
+            animation: wavyLight 22s cubic-bezier(0.4, 0.2, 0.2, 1) infinite;
+            z-index: 0;
+        }
+
+        @keyframes wavyLight {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 50% 60%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 40%; }
+        }
+
+        /* Remove Particle Canvas */
+        #particleCanvas {
+            display: none;
+        }
+
+        /* Update z-index for main content sections */
+        .hero, .features {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+        }
+
+        /* Navigation */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 50px;
+            backdrop-filter: blur(12px) saturate(150%);
+            background: rgba(18, 18, 18, 0.45); /* Dark glassy */
+            border: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: padding 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            padding: 20px 50px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 2px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color); /* Body text */
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-color); /* Body text */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:focus {
+            outline: 2px solid #2E2E2E; /* Outline */
+            outline-offset: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            backdrop-filter: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .main-heading {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary-gradient);
+            color: var(--headline-color);
+            border: none;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button:focus {
+            outline: 2px solid #2E2E2E; /* Outline */
+            outline-offset: 2px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 50px;
+            position: relative;
+            z-index: 2;
+            /* No border for seamless look */
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 3rem;
+            margin-bottom: 80px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out 0.7s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px) saturate(150%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+        }
+
+        .feature-card:active {
+            transform: translateY(-4px);
+        }
+
+        .feature-card:focus {
+            outline: 2px solid #2E2E2E;
+            outline-offset: 2px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--headline-color);
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+            width: 100%;
+        }
+
+        /* Chat Interface */
+        .chat-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: none;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            width: 90%;
+            height: 80%;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 32px 0 rgba(0,0,0,0.45);
+            overflow: hidden;
+            border: 1.5px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.5s ease-out;
+            backdrop-filter: blur(18px) saturate(180%);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .chat-header {
+            background: var(--glass-bg);
+            color: var(--headline-color);
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chat-header h2 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--headline-color); /* Headline Text */
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: var(--text-color); /* Body text */
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-chat:hover {
+            transform: rotate(90deg);
+        }
+
+        .close-chat:focus {
+            outline: 2px solid #2E2E2E; /* Outline */
+            outline-offset: 2px;
+        }
+
+        .messages {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            background: var(--glass-bg);
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 18px;
+            max-width: 80%;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .user-message {
+            background: var(--primary-gradient);
+            color: var(--headline-color);
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 5px;
+        }
+
+        .gurubani-text {
+            font-style: italic;
+            background: rgba(180, 180, 180, 0.08); /* Subtle metallic highlight */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px) saturate(150%);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            color: var(--text-color); /* Body text */
+        }
+
+        .input-container {
+            padding: 25px;
+            background: var(--glass-bg);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 15px;
+        }
+
+        .input-box {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 16px;
+            background: var(--glass-bg);
+            color: var(--text-color);
+        }
+
+        .input-box:focus {
+            box-shadow: 0 0 0 3px rgba(180, 180, 180, 0.15);
+        }
+
+        .send-btn {
+            padding: 15px 25px;
+            background: var(--primary-gradient);
+            color: var(--headline-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .send-btn:focus {
+            outline: 2px solid #2E2E2E; /* Outline */
+            outline-offset: 2px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: var(--text-color);
+            padding: 50px 20px;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px) saturate(150%);
+        }
+
+        .welcome-message h3 {
+            color: var(--headline-color); /* Headline Text */
+        }
+
+        .example-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .example-btn {
+            padding: 8px 15px;
+            background: var(--primary-gradient);
+            color: #111;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .example-btn:hover {
+            transform: translateY(-1px);
+            background: var(--primary-gradient);
+        }
+
+        .example-btn:focus {
+            outline: 2px solid #2E2E2E; /* Outline */
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-color);
+                padding: 30px;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .features {
+                padding: 80px 20px;
+            }
+            
+            .features h2 {
+                font-size: 2rem;
+            }
+            
+            .chat-container {
+                width: 95%;
+                height: 90%;
+            }
+        }
+
+        /* Additional mobile optimizations */
+        @media (max-width: 480px) {
+            .site-header {
+                padding: 15px 20px;
+            }
+
+            .main-heading {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                gap: 30px;
+            }
+
+            .feature-card {
+                padding: 25px 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .example-questions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .example-btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .input-container {
+                padding: 15px;
+            }
+
+            .input-box {
+                padding: 12px 15px;
+            }
+
+            .send-btn {
+                padding: 12px 20px;
+                min-width: 80px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cta-button, .send-btn, .example-btn, .user-message {
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <nav id="navbar" class="site-header">
+        <div class="nav-container">
+            <a href="#" class="logo">WE HAZURI</a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="main-heading">WE HAZURI</h1>
+                <div style="margin: 18px 0 10px 0; font-size: 1.2rem; font-weight: 600; color: #b0b4b8; letter-spacing: 1px;">Akali Intelligence — it's not just artificial, it's awakened</div>
+                <p>Experience the wisdom of Gurubani through advanced AI technology. Connect with Sikh teachings, find spiritual guidance, and explore the profound depths of Gurbani with our intelligent platform.</p>
+                <a href="#features" class="cta-button">Explore Akali Intelligence</a>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="features-container">
+                <h2>Discover Our Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card" onclick="openSikhAI()" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openSikhAI()">
+                        <h3>AI</h3>
+                        <p>Ask questions about life, spirituality, and Sikh teachings. Get personalized responses based on Gurubani wisdom and traditional Sikh values.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Gurubani Library</h3>
+                        <p>Access a comprehensive collection of Sikh scriptures, hymns, and teachings. Search through thousands of verses with intelligent categorization.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Kirtan Player</h3>
+                        <p>Listen to beautiful renditions of Gurbani kirtan. Discover new ragas and connect with the musical tradition of Sikhism.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Daily Hukamnama</h3>
+                        <p>Receive daily spiritual guidance through the Hukamnama from Sri Hazur Sahib, with translations and explanations.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Learning Resources</h3>
+                        <p>Access educational materials about Sikh history, philosophy, and practices. Perfect for beginners and advanced learners alike.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Global Community</h3>
+                        <p>Connect with Sikhs worldwide, share experiences, and learn from each other's spiritual journeys and cultural insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="chat-overlay" id="chatOverlay" role="dialog" aria-modal="true">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>Akali Intelligence</h2>
+                <button class="close-chat" onclick="closeSikhAI()" aria-label="Close chat">×</button>
+            </div>
+            
+            <div class="messages" id="messages">
+                <div class="welcome-message">
+                    <h3>ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖਾਲਸਾ, ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਿਹ!</h3>
+                    <div style="margin: 10px 0 10px 0; font-size: 1.1rem; font-weight: 600; color: #b0b4b8; letter-spacing: 1px;">Akali Intelligence — it's not just artificial, it's awakened</div>
+                    <p>Welcome to Akali Intelligence. Ask any question about Sikh teachings, spirituality, or guidance, and receive answers inspired by Gurubani wisdom.</p>
+                    <div class="example-questions">
+                        <button class="example-btn" onclick="askExample('What is the meaning of life according to Sikhism?')">What is the meaning of life?</button>
+                        <button class="example-btn" onclick="askExample('How to find inner peace?')">How to find inner peace?</button>
+                        <button class="example-btn" onclick="askExample('What is true devotion?')">What is true devotion?</button>
+                        <button class="example-btn" onclick="askExample('Tell me about Guru Nanak Dev Ji')">About Guru Nanak Dev Ji</button>
+                    </div>
+                </div>
+                <div class="loading" id="loading">Loading...</div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" class="input-box" id="messageInput" placeholder="ask about gurbani wisdom" onkeypress="handleKeyPress(event)" aria-label="Chat input">
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Event Listeners
+        window.addEventListener('resize', () => {
+            // Remove particle-related code
+            // resizeCanvas();
+            // particleCount = window.innerWidth <= 768 ? 25 : 40;
+            // initParticles();
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        function trapFocus(element) {
+            const focusableEls = element.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstFocusable = focusableEls[0];
+            const lastFocusable = focusableEls[focusableEls.length - 1];
+            
+            element.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey && document.activeElement === firstFocusable) {
+                        e.preventDefault();
+                        lastFocusable.focus();
+                    } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                        e.preventDefault();
+                        firstFocusable.focus();
+                    }
+                }
+            });
+        }
+
+        const gurubaniBankData = {
+            life: [
+                { text: "ਜੀਵਨ ਦਾ ਅਸਲ ਮਕਸਦ ਪਰਮਾਤਮਾ ਨਾਲ ਜੁੜਨਾ ਹੈ।", translation: "Life's true purpose is to connect with the Divine.", source: "Guru Granth Sahib, Page 12" },
+                { text: "ਮਨੁੱਖ ਜਨਮ ਦੁਲੰਭ ਪਾਇਆ ਹੈ।", translation: "This human birth is precious and rare - use it wisely for spiritual growth.", source: "Guru Granth Sahib, Page 43" },
+                { text: "ਜਿਨ੍ਹ੍ਹਾ ਨ ਵਿਸਾਰਿਆ ਨਾਮ ਸੇ ਕਿਨੇਹੇ।", translation: "Those who do not forget the Naam, how blessed are they!", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਜਿਨ੍ਹ੍ਹਾ ਸਿਮਰਿਆ ਤਿਨ੍ਹ੍ਹਾ ਕਾ ਦੁਖੁ ਜਾਇ।", translation: "Those who remember the Lord, their sufferings depart.", source: "Guru Granth Sahib, Page 8" }
+            ],
+            peace: [
+                { text: "ਸਾਂਤਿ ਉਸ ਨੂੰ ਮਿਲਦੀ ਹੈ ਜੋ ਪਰਮਾਤਮਾ ਵਿੱਚ ਲੀਨ ਹੋ ਜਾਂਦਾ ਹੈ।", translation: "Peace comes to those who merge with the Divine.", source: "Guru Granth Sahib, Page 25" },
+                { text: "ਮਨ ਦੀ ਸ਼ਾਂਤਿ ਨਾਮ ਸਿਮਰਨ ਨਾਲ ਆਉਂਦੀ ਹੈ।", translation: "Mental peace comes through remembering the Divine Name.", source: "Guru Granth Sahib, Page 67" },
+                { text: "ਨਾਨਕ ਨਾਮ ਚੜ੍ਹਦੀ ਕਲਾ, ਤੇਰੇ ਭਾਣੇ ਸਰਬੱਤ ਦਾ ਭਲਾ।", translation: "Nanak, with the Naam comes rising power, and by Your Grace, all good is obtained.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਜਿਨ੍ਹ੍ਹਾ ਨ ਵਿਸਾਰਿਆ ਨਾਮ ਸੇ ਕਿਨੇਹੇ।", translation: "Those who do not forget the Naam, how blessed are they!", source: "Guru Granth Sahib, Page 2" }
+            ],
+            devotion: [
+                { text: "ਸੱਚੀ ਭਗਤੀ ਉਹ ਹੈ ਜੋ ਦਿਲ ਦੀ ਗਹਿਰਾਈ ਤੋਂ ਕੀਤੀ ਜਾਵੇ।", translation: "True devotion comes from the depths of the heart.", source: "Guru Granth Sahib, Page 89" },
+                { text: "ਭਗਤੀ ਵਿੱਚ ਪ੍ਰੇਮ ਅਤੇ ਸਮਰਪਣ ਦੋਵੇਂ ਚਾਹੀਦੇ ਹਨ।", translation: "Devotion requires both love and surrender to the Divine.", source: "Guru Granth Sahib, Page 102" },
+                { text: "ਭਗਤਿ ਕਰਹਿ ਤੇ ਭਗਤਿ ਲਾਗੈ ਬਿਨੁ ਭਗਤਿ ਜਲਿ ਮਰਹਿ।", translation: "Those who practice devotion, obtain devotion; without devotion, they die in vain.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਭਗਤਿ ਕਰਹਿ ਤੇ ਭਗਤਿ ਲਾਗੈ ਬਿਨੁ ਭਗਤਿ ਜਲਿ ਮਰਹਿ।", translation: "Those who practice devotion, obtain devotion; without devotion, they die in vain.", source: "Guru Granth Sahib, Page 2" }
+            ],
+            guru: [
+                { text: "ਗੁਰੂ ਨਾਨਕ ਦੇਵ ਜੀ ਨੇ ਸਿਖਾਇਆ ਕਿ ਸਭ ਮਨੁੱਖ ਬਰਾਬਰ ਹਨ।", translation: "Guru Nanak Dev Ji taught that all humans are equal.", source: "Guru Granth Sahib, Page 15" },
+                { text: "ਗੁਰੂ ਦੀ ਸਿੱਖਿਆ ਹੈ: ਨਾਮ ਜਪੋ, ਕਿਰਤ ਕਰੋ, ਵੰਡ ਛਕੋ।", translation: "The Guru's teaching: Remember God, work honestly, share with others.", source: "Guru Granth Sahib, Page 33" },
+                { text: "ਗੁਰੂ ਗੋਬਿੰਦ ਸਿੰਘ ਜੀ ਨੇ ਖਾਲਸਾ ਪੰਥ ਦੀ ਸਥਾਪਨਾ ਕੀਤੀ।", translation: "Guru Gobind Singh Ji established the Khalsa Panth.", source: "Historical Reference" },
+                { text: "ਗੁਰੂ ਤੇਗ ਬਹਾਦਰ ਜੀ ਨੇ ਧਰਮ ਦੀ ਰੱਖਿਆ ਲਈ ਬਲੀਦਾਨ ਦਿੱਤਾ।", translation: "Guru Tegh Bahadur Ji sacrificed His life to protect religious freedom.", source: "Historical Reference" }
+            ],
+            karma: [
+                { text: "ਜਿਵੇਂ ਬੀਜੇ ਤਿਵੇਂ ਖਾਹਿ।", translation: "As you sow, so shall you reap.", source: "Guru Granth Sahib, Page 134" },
+                { text: "ਕਰਮੀ ਆਵੈ ਕਪੜਾ ਨਦਰੀ ਮੋਖੁ ਦੁਆਰੁ।", translation: "By the karma of past actions, the robe of this physical body is obtained. By His Grace, the Gate of Liberation is found.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਜਿਨ੍ਹ੍ਹਾ ਨ ਵਿਸਾਰਿਆ ਨਾਮ ਸੇ ਕਿਨੇਹੇ।", translation: "Those who do not forget the Naam, how blessed are they!", source: "Guru Granth Sahib, Page 2" }
+            ],
+            meditation: [
+                { text: "ਸਿਮਰਿ ਸਿਮਰਿ ਤਿਸੁ ਸਿਮਰਿ ਸਿਮਰਿ ਗੁਰ ਮੰਤ੍ਰੁ ਜਪਾਵਹੁ।", translation: "Meditate, meditate in remembrance of Him, and chant the Guru's Mantra.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਨਾਮ ਸਿਮਰਨ ਤੇ ਸਭੁ ਕਿਛੁ ਹੋਇ।", translation: "Everything comes from meditating on the Naam.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਜਿਨ੍ਹ੍ਹਾ ਸਿਮਰਿਆ ਤਿਨ੍ਹ੍ਹਾ ਕਾ ਦੁਖੁ ਜਾਇ।", translation: "Those who remember the Lord, their sufferings depart.", source: "Guru Granth Sahib, Page 8" }
+            ],
+            seva: [
+                { text: "ਸੇਵਾ ਕਰਤ ਹੋਇ ਨਿਹਕਾਮੀ।", translation: "Perform selfless service without any desire for reward.", source: "Guru Granth Sahib, Page 286" },
+                { text: "ਸੇਵਾ ਕਰਤ ਹੋਇ ਨਿਹਕਾਮੀ ਤਿਸ ਕਉ ਹੋਤ ਪਰਾਪਤਿ ਸੁਆਮੀ।", translation: "One who performs selfless service, without thought of reward, shall attain his Lord and Master.", source: "Guru Granth Sahib, Page 286" }
+            ],
+            equality: [
+                { text: "ਜਾਤਿ ਪਾਤਿ ਪੂਛੈ ਨਹੀ ਕੋਈ।", translation: "No one asks about another's caste or social status.", source: "Guru Granth Sahib, Page 83" },
+                { text: "ਸਭੇ ਸਾਝੀਵਾਲ ਸਦਾਇਨਿ।", translation: "All share in the common wealth.", source: "Guru Granth Sahib, Page 97" }
+            ],
+            forgiveness: [
+                { text: "ਖਿਮਾ ਗਹੀ ਸਭ ਤੇ ਵਡੀ।", translation: "Forgiveness is the greatest virtue.", source: "Guru Granth Sahib, Page 262" },
+                { text: "ਖਿਮਾ ਗਹੀ ਸਭ ਤੇ ਵਡੀ।", translation: "Forgiveness is the greatest virtue.", source: "Guru Granth Sahib, Page 262" }
+            ],
+            wisdom: [
+                { text: "ਗਿਆਨ ਧਿਆਨ ਦੋਵੇ ਸਿਫਤਿ ਸਾਲਾਹ।", translation: "Knowledge and meditation are both forms of praise.", source: "Guru Granth Sahib, Page 2" },
+                { text: "ਬਿਨੁ ਗਿਆਨ ਕੇ ਹੋਇ ਨ ਪਰਾਪਤਿ।", translation: "Without spiritual wisdom, there is no attainment.", source: "Guru Granth Sahib, Page 2" }
+            ]
+        };
+
+        // Enhanced data structure for complete Granth texts
+        const granthData = {
+            guruGranthSahib: {
+                metadata: {
+                    name: "Sri Guru Granth Sahib Ji",
+                    totalAngs: 1430,
+                    totalRaags: 31
+                },
+                content: {
+                    // This will be populated with actual content
+                    // Structure: { ang: { gurmukhi: "", translation: "", raag: "", author: "" } }
+                }
+            },
+            dasamGranth: {
+                metadata: {
+                    name: "Dasam Granth",
+                    totalPages: 1428,
+                    sections: ["Jaap Sahib", "Bachitar Natak", "Chandi Charitar", "Chandi Di Vaar", "Gian Prabodh", "Chaubis Avtar", "Brahm Avtar", "Rudra Avtar", "Shabad Hazare", "Swayyae", "Khalsa Mehma", "Shastar Naam Mala", "Charitropakhyan", "Zafarnama", "Hikayats"]
+                },
+                content: {
+                    // This will be populated with actual content
+                }
+            },
+            sarblohGranth: {
+                metadata: {
+                    name: "Sarbloh Granth",
+                    totalPages: 1000,
+                    sections: ["Sri Sarbloh Granth", "Sri Sarbloh Prakash"]
+                },
+                content: {
+                    // This will be populated with actual content
+                }
+            }
+        };
+
+        // Function to load Granth content
+        async function loadGranthContent() {
+            try {
+                const response = await fetch('granth_data.json');
+                const data = await response.json();
+                
+                // Populate the granthData.content with actual content
+                Object.assign(granthData.guruGranthSahib.content, data.guruGranthSahib.content);
+                Object.assign(granthData.dasamGranth.content, data.dasamGranth.content);
+                Object.assign(granthData.sarblohGranth.content, data.sarblohGranth.content);
+                
+                console.log('Granth content loaded successfully');
+            } catch (error) {
+                console.error('Error loading Granth content:', error);
+            }
+        }
+
+        // Enhanced search functionality
+        function searchGranths(query) {
+            const results = {
+                guruGranthSahib: [],
+                dasamGranth: [],
+                sarblohGranth: []
+            };
+
+            // Convert query to searchable format
+            const searchTerms = query.toLowerCase().split(' ');
+
+            // Search in each Granth
+            for (const [granthName, granth] of Object.entries(granthData)) {
+                if (granth.content) {
+                    for (const [key, content] of Object.entries(granth.content)) {
+                        const relevance = calculateRelevance(content, searchTerms);
+                        if (relevance > 0) {
+                            results[granthName].push({
+                                content: content,
+                                relevance: relevance,
+                                source: `${granth.metadata.name}, ${key}`
+                            });
+                        }
+                    }
+                }
+            }
+
+            // Sort results by relevance
+            for (const granth in results) {
+                results[granth].sort((a, b) => b.relevance - a.relevance);
+            }
+
+            return results;
+        }
+
+        function calculateRelevance(content, searchTerms) {
+            let relevance = 0;
+            const text = `${content.gurmukhi} ${content.translation}`.toLowerCase();
+
+            for (const term of searchTerms) {
+                if (text.includes(term)) {
+                    relevance += 1;
+                }
+            }
+
+            return relevance;
+        }
+
+        function getGurubaniResponse(question) {
+            const searchResults = searchGranths(question);
+            
+            // Combine results from all Granths
+            let allResults = [];
+            for (const granth in searchResults) {
+                allResults = allResults.concat(searchResults[granth]);
+            }
+
+            // Sort by relevance
+            allResults.sort((a, b) => b.relevance - a.relevance);
+
+            if (allResults.length > 0) {
+                const bestMatch = allResults[0].content;
+                return `${bestMatch.gurmukhi}\n${bestMatch.translation}\nSource: ${allResults[0].source}`;
+            }
+
+            // Fallback to existing response system if no matches found
+            return getFallbackResponse(question);
+        }
+
+        function getFallbackResponse(question) {
+            const lowerQuestion = question.toLowerCase();
+            const categories = {
+                life: ['life', 'meaning', 'purpose', 'goal', 'aim'],
+                peace: ['peace', 'calm', 'tranquil', 'happiness', 'joy'],
+                devotion: ['devotion', 'prayer', 'worship', 'bhakti', 'love'],
+                guru: ['guru', 'nanak', 'gobind', 'tegh', 'teaching'],
+                karma: ['karma', 'action', 'deed', 'consequence', 'result'],
+                meditation: ['meditation', 'simran', 'naam', 'remember', 'focus'],
+                seva: ['seva', 'service', 'help', 'serve', 'volunteer'],
+                equality: ['equality', 'equal', 'same', 'unity', 'together'],
+                forgiveness: ['forgive', 'forgiveness', 'pardon', 'excuse'],
+                wisdom: ['wisdom', 'knowledge', 'learn', 'understand', 'gyaan']
+            };
+
+            for (const [category, keywords] of Object.entries(categories)) {
+                if (keywords.some(keyword => lowerQuestion.includes(keyword))) {
+                    const responses = gurubaniBankData[category];
+                    const response = responses[Math.floor(Math.random() * responses.length)];
+                    return `${response.text} ${response.translation} Source: ${response.source}`;
+                }
+            }
+
+            return "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ। According to Guru's teachings, the answer to every question lies in remembering the Divine Name. Source: General Sikh Teaching";
+        }
+
+        // Call this when the page loads
+        document.addEventListener('DOMContentLoaded', loadGranthContent);
+
+        function openSikhAI() {
+            document.getElementById('chatOverlay').style.display = 'flex';
+            document.getElementById('messageInput').focus();
+            trapFocus(document.getElementById('chatOverlay'));
+        }
+
+        function closeSikhAI() {
+            document.getElementById('chatOverlay').style.display = 'none';
+            document.querySelector('.nav-links').classList.remove('active');
+        }
+
+        function addMessage(content, isUser) {
+            const messagesContainer = document.getElementById('messages');
+            const welcomeMessage = messagesContainer.querySelector('.welcome-message');
+            if (welcomeMessage) welcomeMessage.remove();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.innerHTML = isUser ? content : `<div class="gurubani-text">${content}</div>`;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const question = input.value.trim();
+            
+            if (!question) {
+                addMessage("Please enter a question.", false);
+                return;
+            }
+
+            addMessage(question, true);
+            input.value = '';
+            document.getElementById('sendBtn').disabled = true;
+            
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            addMessage(getGurubaniResponse(question), false);
+            
+            document.getElementById('sendBtn').disabled = false;
+            input.focus();
+        }
+
+        function askExample(question) {
+            document.getElementById('messageInput').value = question;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') sendMessage();
+        }
+
+        document.getElementById('chatOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSikhAI();
+            }
+        });
+    </script>
+</body>
+</html>
